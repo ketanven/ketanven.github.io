@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 
 export default function AmbientBackground() {
   const containerRef = useRef<HTMLDivElement>(null);

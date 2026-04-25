@@ -3,7 +3,17 @@ import { ExternalLink, Activity, Users, Clock, CalendarDays } from 'lucide-react
 import { FaGithub } from 'react-icons/fa';
 import NetworkBackground from './NetworkBackground';
 
-const projects = [
+type Project = {
+  featured: boolean;
+  title: string;
+  subtitle: string;
+  description: string;
+  tech: string[];
+  links: { github?: string; live?: string };
+  highlights?: { icon: JSX.Element; text: string }[];
+};
+
+const projects: Project[] = [
   {
     featured: true,
     title: "WorkHub",
