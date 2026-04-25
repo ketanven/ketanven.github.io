@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { ExternalLink, Activity, Users, Clock, CalendarDays } from 'lucide-react';
 import { FaGithub } from 'react-icons/fa';
 import NetworkBackground from './NetworkBackground';
-import { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
 type Project = {
   featured: boolean;
