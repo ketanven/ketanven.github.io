@@ -1,7 +1,7 @@
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, MessageSquare, Send } from 'lucide-react';
+import { MessageSquare, Send } from 'lucide-react';
 import { FaLinkedin, FaGithub } from 'react-icons/fa';
-import { useState } from 'react';
 
 export default function Contact() {
   const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success'>('idle');
