@@ -1,6 +1,6 @@
 import { motion, useScroll } from 'framer-motion';
 import { useRef } from 'react';
-import { Building2, GraduationCap, Calendar, CheckCircle2, ChevronRight } from 'lucide-react';
+import { Building2, GraduationCap, Calendar, ChevronRight } from 'lucide-react';
 
 const timeline = [
   {
