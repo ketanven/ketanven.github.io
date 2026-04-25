@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { ExternalLink, Activity, Users, Clock, CalendarDays } from 'lucide-react';
 import { FaGithub } from 'react-icons/fa';
 import NetworkBackground from './NetworkBackground';
+import { ReactNode } from 'react';
 
 type Project = {
   featured: boolean;
@@ -10,7 +11,7 @@ type Project = {
   description: string;
   tech: string[];
   links: { github?: string; live?: string };
-  highlights?: { icon: JSX.Element; text: string }[];
+  highlights?: { icon: ReactNode; text: string }[];
 };
 
 const projects: Project[] = [
