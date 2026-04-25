@@ -34,7 +34,7 @@ const services = [
 
 export default function Services() {
   return (
-    <section id="services" className="py-24 relative overflow-hidden">
+    <section id="services" className="py-16 md:py-24 relative overflow-hidden">
       {/* Decorative gradient orb */}
       <div className="absolute left-[20%] top-0 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[120px] pointer-events-none"></div>
 

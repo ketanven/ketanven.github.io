@@ -49,7 +49,7 @@ const projects: Project[] = [
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-24 relative overflow-hidden">
+    <section id="projects" className="py-16 md:py-24 relative overflow-hidden">
       <NetworkBackground />
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         <motion.div 

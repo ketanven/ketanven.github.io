@@ -25,7 +25,7 @@ const skillCategories = [
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-24 relative overflow-hidden">
+    <section id="skills" className="py-16 md:py-24 relative overflow-hidden">
       {/* Background glow */}
       <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[100px] opacity-50 pointer-events-none"></div>
 

@@ -57,7 +57,7 @@ export default function Experience() {
   });
 
   return (
-    <section id="experience" className="py-24 relative overflow-hidden">
+    <section id="experience" className="py-16 md:py-24 relative overflow-hidden">
       <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-green-500/10 rounded-full blur-[120px] opacity-30 pointer-events-none"></div>
 
       <div className="max-w-4xl mx-auto px-6 md:px-12 relative z-10">

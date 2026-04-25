@@ -25,10 +25,10 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="text-5xl md:text-7xl font-bold tracking-tight text-white mb-6 max-w-4xl"
+          className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight text-white mb-6 max-w-4xl leading-tight"
         >
           Backend Engineer building <br className="hidden md:block"/>
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 whitespace-nowrap">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 md:whitespace-nowrap">
             <TypeAnimation
               sequence={[
                 'scalable systems & APIs',
@@ -57,7 +57,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="text-lg md:text-xl text-gray-400 max-w-2xl mb-10"
+          className="text-base sm:text-lg md:text-xl text-gray-400 max-w-2xl mb-10 leading-relaxed"
         >
           Hi, I'm Ketan Pillai. I specialize in high-performance backends, scalable architectures, and crafting real-world solutions that handle complex business logic.
         </motion.p>
