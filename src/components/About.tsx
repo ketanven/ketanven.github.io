@@ -1,12 +1,12 @@
 import { motion } from 'framer-motion';
-import { Target, Server, Zap, MessageSquare, LifeBuoy, Code2 } from 'lucide-react';
+import { Target, Zap, MessageSquare, LifeBuoy, Code2, Layers } from 'lucide-react';
 
 export default function About() {
   const cards = [
     {
-      icon: <Server className="w-6 h-6 text-blue-400" />,
-      title: "Production Systems",
-      description: "Experience building and maintaining real-world systems handling live traffic and critical business data."
+      icon: <Layers className="w-6 h-6 text-blue-400" />,
+      title: "End-to-End Ownership",
+      description: "Experience building real-world systems across backend APIs, admin panels, and frontend interfaces — not just one layer of the stack."
     },
     {
       icon: <Zap className="w-6 h-6 text-purple-400" />,
@@ -50,10 +50,13 @@ export default function About() {
           </h2>
           <div className="text-gray-400 text-lg space-y-4">
             <p>
-              I started my tech journey with a relentless curiosity for how things work under the hood. From learning the basics to landing a rigorous internship, and quickly transitioning into a full-time Backend Software Engineer, I've always been driven by the desire to build robust systems.
+              I started my tech journey with a relentless curiosity for how things work under the hood. From an internship to a full-time role as a Junior Software Developer, I've worked across the entire stack — building REST APIs, admin panels, and customer-facing interfaces for products used by real teams and paying subscribers.
             </p>
             <p>
-              Whether it's designing complex database schemas, setting up robust backend flows in Django and Laravel, or configuring AWS architecture, my focus remains on writing clean, maintainable, and scalable workflows.
+              Whether it's designing complex database schemas, building backend flows in Django, Laravel, and Node.js, wiring up payment infrastructure with Stripe and Razorpay, or building the React/Vue interfaces on top, my focus stays on clean, maintainable, scalable code.
+            </p>
+            <p>
+              I also lean heavily on AI-assisted development — tools like Claude Code, GitHub Copilot, and Cursor are part of my daily workflow, letting me move faster through boilerplate and iterate on ideas quickly without sacrificing code quality.
             </p>
             <div className="p-4 border-l-2 border-blue-500 bg-blue-500/5 mt-6 rounded-r-lg">
               <p className="text-gray-300 italic text-base">

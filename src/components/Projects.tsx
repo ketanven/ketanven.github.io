@@ -10,7 +10,7 @@ type Project = {
   subtitle: string;
   description: string;
   tech: string[];
-  links: { github?: string; live?: string };
+  links: { github?: string; live?: string; githubAPI?: string; githubWeb?: string; githubAdmin?: string };
   highlights?: { icon: ReactNode; text: string }[];
 };
 
@@ -18,32 +18,44 @@ const projects: Project[] = [
   {
     featured: true,
     title: "WorkHub",
-    subtitle: "Freelancer & Management Operating System",
-    description: "A comprehensive SaaS platform designed for freelancers to manage their entire workflow. Features include an intelligent time tracking system, automated invoicing with PDF generation, a proprietary Client Trust scoring algorithm, Kanban boards, and real-time KPI dashboards.",
-    tech: ["Django", "DRF", "React", "TypeScript", "Tailwind", "MySQL", "AWS EC2", "Nginx"],
-    links: { github: "https://github.com/ketanven/fwts_appapi" },
+    subtitle: "Project & Task Management Platform",
+    description: "A modular project and task management system with role-based access for Admins, Managers, and Team Members. Built as three services — REST API, web client, and admin panel — with a clean, service-based Django architecture.",
+    tech: ["Django", "Django REST Framework", "MySQL"],
+    links: { 
+      githubAPI: "https://github.com/ketanven/fwts_appapi",
+      githubWeb: "https://github.com/ketanven/fwts_web",
+      githubAdmin: "https://github.com/ketanven/fwts_admin"
+    },
     highlights: [
-      { icon: <Clock size={16} />, text: "Intelligent Time Tracking" },
-      { icon: <Activity size={16} />, text: "Client Trust Scoring" },
-      { icon: <CalendarDays size={16} />, text: "Kanban & Calendar" },
-      { icon: <Users size={16} />, text: "KPI Dashboards" }
+      { icon: <Users size={16} />, text: "Role-Based Access Control" },
+      { icon: <Activity size={16} />, text: "Service-Based Django" },
+      { icon: <Clock size={16} />, text: "Web & Admin Clients" },
+      { icon: <CalendarDays size={16} />, text: "Modular Task Workflows" }
     ]
   },
   {
     featured: false,
     title: "Milkly",
-    subtitle: "Dairy eCommerce System",
-    description: "A robust eCommerce platform tailored for dairy businesses. Built with complex real-world business logic handling subscription models, dynamic delivery tracking, and a comprehensive admin panel for inventory and route management.",
-    tech: ["Node.js", "Express", "Vue.js", "MongoDB"],
+    subtitle: "Dairy Subscription & E-Commerce Platform",
+    description: "A full-stack e-commerce and subscription platform for dairy merchants and customers — shopping cart, wishlist, and recurring daily/weekly delivery subscriptions, with a seller panel and multi-level admin console.",
+    tech: ["Laravel 12", "Vite", "Tailwind CSS", "SQLite", "Stripe", "Razorpay", "JWT"],
     links: { github: "https://github.com/ketanven/Milky" }
   },
   {
     featured: false,
-    title: "Booking Application",
-    subtitle: "Real-time Reservation System",
-    description: "A highly available booking platform handling real-time reservation flows, concurrency control, and integration with third-party payment gateways via secure backend APIs.",
-    tech: ["Django", "PostgreSQL", "Redis"],
-    links: { github: "#" }
+    title: "E-Wheels",
+    subtitle: "Smart Vehicle Rental & Reservation System",
+    description: "A vehicle rental and reservation platform with a dynamic customer booking widget and an AdminLTE-powered admin dashboard, synchronizing admin data in real time between a relational database and Firebase.",
+    tech: ["Laravel 12", "Tailwind CSS", "AdminLTE 4", "Firebase Realtime DB", "Firestore"],
+    links: { github: "https://github.com/ketanven/E-Wheels" }
+  },
+  {
+    featured: false,
+    title: "Furni",
+    subtitle: "Two-Sided Buyer/Seller E-Commerce Platform",
+    description: "An e-commerce platform for furniture with buyer-side cart/wishlist/checkout and a seller-side inventory dashboard, integrated with Razorpay payments and SMS-OTP password recovery.",
+    tech: ["Django", "SQLite", "Bootstrap", "Razorpay", "Textbelt OTP API"],
+    links: { github: "https://github.com/ketanven/Furni" }
   }
 ];
 
@@ -114,7 +126,7 @@ export default function Projects() {
                     ))}
                   </div>
 
-                  <div className="flex items-center space-x-4">
+                  <div className="flex flex-wrap items-center gap-4">
                     {project.links.live && (
                       <a href={project.links.live} className="flex items-center justify-center space-x-2 bg-white text-black px-5 py-2.5 rounded-lg text-sm font-medium hover:bg-gray-200 transition-colors">
                         <ExternalLink size={16} />
@@ -125,6 +137,24 @@ export default function Projects() {
                       <a href={project.links.github} className="flex items-center justify-center space-x-2 bg-white/5 text-white border border-white/10 px-5 py-2.5 rounded-lg text-sm font-medium hover:bg-white/10 transition-colors">
                         <FaGithub size={16} />
                         <span>Source Code</span>
+                      </a>
+                    )}
+                    {project.links.githubAPI && (
+                      <a href={project.links.githubAPI} className="flex items-center justify-center space-x-2 bg-white/5 text-white border border-white/10 px-5 py-2.5 rounded-lg text-sm font-medium hover:bg-white/10 transition-colors">
+                        <FaGithub size={16} />
+                        <span>API Repo</span>
+                      </a>
+                    )}
+                    {project.links.githubWeb && (
+                      <a href={project.links.githubWeb} className="flex items-center justify-center space-x-2 bg-white/5 text-white border border-white/10 px-5 py-2.5 rounded-lg text-sm font-medium hover:bg-white/10 transition-colors">
+                        <FaGithub size={16} />
+                        <span>Web Repo</span>
+                      </a>
+                    )}
+                    {project.links.githubAdmin && (
+                      <a href={project.links.githubAdmin} className="flex items-center justify-center space-x-2 bg-white/5 text-white border border-white/10 px-5 py-2.5 rounded-lg text-sm font-medium hover:bg-white/10 transition-colors">
+                        <FaGithub size={16} />
+                        <span>Admin Repo</span>
                       </a>
                     )}
                   </div>

@@ -7,44 +7,71 @@ const timeline = [
     type: "work",
     title: "Junior Software Developer",
     organization: "iCoderz Pvt. Ltd.",
-    date: "Oct 2024 – Present",
+    date: "Apr 2024 – Present",
     details: [
-      "Promoted to full-time Junior Developer after successfully completing a 6-month internship.",
-      "Working on scalable backend solutions using Laravel, implementing RESTful APIs and service-layer architecture.",
-      "Managing and optimizing MySQL databases with a focus on performance, indexing, and query optimization.",
-      "Collaborating with the frontend team using Vue.js to create dynamic web applications."
+      "Promoted to full-time Junior Software Developer after completing a 6-month internship.",
+      <span>
+        <strong>SourceCAD</strong> — Online CAD Learning Platform <em className="text-gray-400 text-xs">(Node.js, React.js, Next.js, Express.js, PostgreSQL)</em>
+        <span className="block text-xs text-gray-400 mt-1 pl-3 border-l border-blue-500/30 space-y-1">
+          <span>• Built & maintained REST APIs across web, admin, and mobile clients.</span><br/>
+          <span>• Implemented subscription billing integrating Stripe and Razorpay (upgrades, downgrades, webhook cycles).</span><br/>
+          <span>• Owned the React.js admin panel, course management, and training dashboards.</span>
+        </span>
+      </span>,
+      <span>
+        <strong>Go Payana</strong> — Ride-Hailing Platform <em className="text-gray-400 text-xs">(Laravel, Vue.js)</em>
+        <span className="block text-xs text-gray-400 mt-1 pl-3 border-l border-blue-500/30 space-y-1">
+          <span>• Built rider and driver app REST APIs for zero-commission ride-hailing.</span><br/>
+          <span>• Developed the Vue.js admin panel for ride tracking and driver management.</span><br/>
+          <span>• Implemented OTP authentication and real-time location/matching features.</span>
+        </span>
+      </span>,
+      <span>
+        <strong>ToMoveOut</strong> — Relocation Marketplace <em className="text-gray-400 text-xs">(Laravel, JavaScript)</em>
+        <span className="block text-xs text-gray-400 mt-1 pl-3 border-l border-blue-500/30 space-y-1">
+          <span>• Delivered relocation marketplace APIs, Blade admin panel, and JavaScript frontend.</span><br/>
+          <span>• Built multi-country/multi-language listing search, filters, and in-app messaging.</span>
+        </span>
+      </span>,
+      <span>
+        <strong>PMS</strong> — Project Management System <em className="text-gray-400 text-xs">(Laravel, Vue.js)</em>
+        <span className="block text-xs text-gray-400 mt-1 pl-3 border-l border-blue-500/30 space-y-1">
+          <span>• Added company-wide project management APIs, task tracking, and real-time timers.</span><br/>
+          <span>• Developed CEO/Manager/Employee role dashboards and Kanban boards.</span>
+        </span>
+      </span>
     ]
   },
   {
     type: "education",
-    title: "Master of Computer Applications",
+    title: "Master of Computer Applications (MCA)",
     organization: "Silver Oak University",
-    date: "2024 – Present",
+    date: "Completed — CGPA 9.3",
     details: ["Pursuing advanced studies in computer science and application development."]
   },
   {
     type: "work",
     title: "Backend Development Intern",
     organization: "iCoderz Pvt. Ltd.",
-    date: "April 2024 – Oct 2024",
+    date: "Oct 2023 – Mar 2024",
     details: [
-      "Contributed to live projects by building and integrating backend features using Laravel and MySQL.",
-      "Gained hands-on experience with API development, validation, and database schema design.",
-      "Learned agile workflows and version control practices in a professional environment."
+      "Contributed to production Laravel applications and REST API development under senior engineer guidance.",
+      "Gained hands-on experience with database design, validation, and deployment activities.",
+      "Learned Agile workflows and version control practices in a professional environment."
     ]
   },
   {
     type: "education",
-    title: "Bachelor of Computer Applications",
+    title: "Bachelor of Computer Applications (BCA)",
     organization: "GLS University",
-    date: "2021 – 2024",
+    date: "2021 – 2024 — CGPA 8.0",
     details: ["Completed bachelor's degree focusing on core computer science subjects, software engineering, and database management systems."]
   },
   {
     type: "education",
     title: "12th Commerce",
     organization: "Nelson's Higher Secondary School",
-    date: "Completed 2021",
+    date: "Completed",
     details: ["Completed higher secondary education establishing a strong quantitative foundation."]
   }
 ];

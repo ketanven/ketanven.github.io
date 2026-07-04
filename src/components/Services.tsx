@@ -3,9 +3,16 @@ import { Code2, Database, Rocket, Wrench } from 'lucide-react';
 
 const services = [
   {
+    icon: <Rocket className="w-8 h-8 text-purple-400 group-hover:text-purple-300 transition-colors" />,
+    title: "Full-Stack SaaS MVP",
+    description: "Rapidly prototyping and delivering complete web applications from scratch, pairing robust Django/Laravel/Node.js backends with modern React or Vue.js frontends.",
+    color: "from-purple-500/20 to-transparent",
+    border: "group-hover:border-purple-500/50"
+  },
+  {
     icon: <Code2 className="w-8 h-8 text-blue-400 group-hover:text-blue-300 transition-colors" />,
     title: "Custom API Development",
-    description: "Building secure, highly-scalable, and fully documented REST APIs tailored to your business needs, powered by robust Django, Laravel, or Node.js backends.",
+    description: "Building secure, highly-scalable, and fully documented REST APIs tailored to your business needs, powered by Django, Laravel, or Node.js.",
     color: "from-blue-500/20 to-transparent",
     border: "group-hover:border-blue-500/50"
   },
@@ -17,16 +24,9 @@ const services = [
     border: "group-hover:border-green-500/50"
   },
   {
-    icon: <Rocket className="w-8 h-8 text-purple-400 group-hover:text-purple-300 transition-colors" />,
-    title: "Full-Stack SaaS MVP",
-    description: "Rapidly prototyping and delivering complete web applications from scratch, pairing robust backend logic with modern, lightning-fast React or Vue.js frontends.",
-    color: "from-purple-500/20 to-transparent",
-    border: "group-hover:border-purple-500/50"
-  },
-  {
     icon: <Wrench className="w-8 h-8 text-orange-400 group-hover:text-orange-300 transition-colors" />,
     title: "Refactoring & Bug Fixing",
-    description: "Diving into complex legacy systems to resolve critical execution bugs, eliminate technical debt, and significantly increase overall application stability.",
+    description: "Diving into complex legacy systems to resolve critical bugs, eliminate technical debt, and increase overall application stability.",
     color: "from-orange-500/20 to-transparent",
     border: "group-hover:border-orange-500/50"
   }
