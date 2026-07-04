@@ -72,6 +72,7 @@ export default function TechMarquee() {
       
       <motion.div 
         className="flex space-x-16 md:space-x-24 items-center w-max"
+        style={{ willChange: 'transform' }}
         animate={{ x: ["0%", "-50%"] }}
         transition={{ ease: "linear", duration: 80, repeat: Infinity }}
       >

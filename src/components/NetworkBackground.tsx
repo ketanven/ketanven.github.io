@@ -1,10 +1,22 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 export default function NetworkBackground() {
+  const [isMobile, setIsMobile] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  useEffect(() => {
+    if (isMobile) return;
+
     const container = containerRef.current;
     const canvas = canvasRef.current;
     if (!canvas || !container) return;
@@ -37,10 +49,9 @@ export default function NetworkBackground() {
       radius: number;
     }
 
-    // Generate responsive amount of particles
     const getParticleCount = () => {
       const area = width * height;
-      return Math.min(Math.floor(area / 10000), 120); // Scale down based on screen area to prevent lag
+      return Math.min(Math.floor(area / 10000), 120);
     };
 
     let particles: Particle[] = [];
@@ -51,7 +62,7 @@ export default function NetworkBackground() {
         particles.push({
           x: Math.random() * width,
           y: Math.random() * height,
-          vx: (Math.random() - 0.5) * 0.4, // Slow drift
+          vx: (Math.random() - 0.5) * 0.4,
           vy: (Math.random() - 0.5) * 0.4,
           radius: Math.random() * 1.2 + 0.5
         });
@@ -59,7 +70,6 @@ export default function NetworkBackground() {
     };
     initParticles();
 
-    // Re-initialize particles heavily on big resizes to distribute them correctly
     let resizeTimeout: ReturnType<typeof setTimeout>;
     const handleResizeEnd = () => {
       clearTimeout(resizeTimeout);
@@ -70,21 +80,17 @@ export default function NetworkBackground() {
     window.addEventListener('resize', handleResizeEnd);
 
     const draw = () => {
-      // Deep pitch black background
       ctx.fillStyle = '#000000';
       ctx.fillRect(0, 0, width, height);
 
-      // Update positions
       particles.forEach(p => {
         p.x += p.vx;
         p.y += p.vy;
 
-        // Bounce off walls smoothly
         if (p.x < 0 || p.x > width) p.vx *= -1;
         if (p.y < 0 || p.y > height) p.vy *= -1;
       });
 
-      // Render connection lines (The "Network")
       const connectDistance = 140;
       
       for (let i = 0; i < particles.length; i++) {
@@ -96,21 +102,18 @@ export default function NetworkBackground() {
           const distance = Math.sqrt(dx * dx + dy * dy);
 
           if (distance < connectDistance) {
-            // Farther = more transparent
             let opacity = 1 - (distance / connectDistance);
             
-            // Vignette calculation: lower opacity if line is near the edge of container
             const midX = (p1.x + p2.x) / 2;
             const midY = (p1.y + p2.y) / 2;
             const distFromCenterX = Math.abs(midX - width / 2) / (width / 2);
             const distFromCenterY = Math.abs(midY - height / 2) / (height / 2);
             const edgeFade = 1 - Math.max(distFromCenterX, distFromCenterY);
             
-            // Final edge fade calculation capping opacity heavily
-            opacity = opacity * edgeFade * 0.3; // Max line opacity is 30%
+            opacity = opacity * edgeFade * 0.3;
 
             if (opacity > 0) {
-              ctx.strokeStyle = `rgba(139, 92, 246, ${opacity})`; // Violet colored connections
+              ctx.strokeStyle = `rgba(139, 92, 246, ${opacity})`;
               ctx.lineWidth = 1;
               ctx.beginPath();
               ctx.moveTo(p1.x, p1.y);
@@ -121,14 +124,12 @@ export default function NetworkBackground() {
         }
       }
 
-      // Render particle dots
       particles.forEach(p => {
-        // Vignette on particles too
         const distFromCenterX = Math.abs(p.x - width / 2) / (width / 2);
         const distFromCenterY = Math.abs(p.y - height / 2) / (height / 2);
         const edgeFade = 1 - Math.max(distFromCenterX, distFromCenterY);
         
-        ctx.fillStyle = `rgba(59, 130, 246, ${0.1 + edgeFade * 0.5})`; // Blue nodes
+        ctx.fillStyle = `rgba(59, 130, 246, ${0.1 + edgeFade * 0.5})`;
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.radius * (1 + edgeFade), 0, Math.PI * 2);
         ctx.fill();
@@ -144,7 +145,9 @@ export default function NetworkBackground() {
       window.removeEventListener('resize', handleResizeEnd);
       cancelAnimationFrame(animationFrameId);
     };
-  }, []);
+  }, [isMobile]);
+
+  if (isMobile) return null;
 
   return (
     <div ref={containerRef} className="absolute inset-0 z-0 pointer-events-none overflow-hidden">

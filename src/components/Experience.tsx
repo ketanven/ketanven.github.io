@@ -1,5 +1,4 @@
-import { motion, useScroll } from 'framer-motion';
-import { useRef } from 'react';
+import { motion } from 'framer-motion';
 import { Building2, GraduationCap, Calendar, ChevronRight } from 'lucide-react';
 
 const timeline = [
@@ -77,12 +76,6 @@ const timeline = [
 ];
 
 export default function Experience() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start center", "end center"]
-  });
-
   return (
     <section id="experience" className="py-16 md:py-24 relative overflow-hidden">
       <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-green-500/10 rounded-full blur-[120px] opacity-30 pointer-events-none"></div>
@@ -103,13 +96,10 @@ export default function Experience() {
           </p>
         </motion.div>
 
-        <div ref={containerRef} className="relative pl-6 md:pl-8 border-l border-white/10 max-w-3xl mx-auto">
+        <div className="relative pl-6 md:pl-8 border-l border-white/10 max-w-3xl mx-auto">
           
-          {/* Animated Scroll-Linked Line */}
-          <motion.div 
-            style={{ scaleY: scrollYProgress }}
-            className="absolute left-[-1px] top-0 bottom-0 w-[2px] origin-top bg-gradient-to-b from-blue-500 via-purple-500 to-transparent"
-          ></motion.div>
+          {/* Static Gradient Line - highly performant, GPU-friendly */}
+          <div className="absolute left-[-1px] top-0 bottom-0 w-[2px] bg-gradient-to-b from-blue-500 via-purple-500 to-transparent"></div>
           
           {timeline.map((item, idx) => (
             <motion.div 

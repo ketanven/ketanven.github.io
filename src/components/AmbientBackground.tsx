@@ -1,10 +1,22 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 export default function AmbientBackground() {
+  const [isMobile, setIsMobile] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  useEffect(() => {
+    if (isMobile) return;
+    
     const container = containerRef.current;
     const canvas = canvasRef.current;
     if (!canvas || !container) return;
@@ -59,7 +71,7 @@ export default function AmbientBackground() {
           if (baseAlpha < 0) baseAlpha = 0;
 
           const wave = Math.sin(distance * 0.02 - time);
-          const radius = 0.5 + ((wave + 1) / 2) * 1.0; // slightly smaller top size
+          const radius = 0.5 + ((wave + 1) / 2) * 1.0;
           const alpha = baseAlpha * (0.4 + ((wave + 1) / 2) * 0.6);
 
           if (alpha > 0.005) {
@@ -80,7 +92,9 @@ export default function AmbientBackground() {
       observer.disconnect();
       cancelAnimationFrame(animationFrameId);
     };
-  }, []);
+  }, [isMobile]);
+
+  if (isMobile) return null;
 
   return (
     <div ref={containerRef} className="absolute inset-0 z-0 pointer-events-none overflow-hidden rounded-b-3xl">
