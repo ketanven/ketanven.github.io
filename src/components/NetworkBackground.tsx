@@ -7,7 +7,8 @@ export default function NetworkBackground() {
 
   useEffect(() => {
     const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
+      const isTouch = navigator.maxTouchPoints > 0 || 'ontouchstart' in window;
+      setIsMobile(window.innerWidth < 1024 || isTouch);
     };
     checkMobile();
     window.addEventListener('resize', checkMobile);
