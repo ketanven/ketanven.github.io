@@ -40,7 +40,7 @@ Below is the exact text flow and content rendered in the portfolio application, 
   > Hi, I'm Ketan Pillai. I build full-stack products end-to-end — from scalable Node.js, Laravel, and Django backends to the React and Vue interfaces on top — with particular strength in API architecture and cloud infrastructure.
 * **Call-to-Action Buttons:**
   1. `View Projects` (links to Projects section)
-  2. `Download Resume` (links to `Ketan Pillai.pdf` asset)
+  2. `Download Resume` (links to `public/Ketan_Pillai_Resume.pdf` asset)
   3. `Contact Me` (links to Contact section)
 
 ---

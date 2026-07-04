@@ -3,7 +3,6 @@ import { ArrowRight, Terminal } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { TypeAnimation } from 'react-type-animation';
 import AmbientBackground from './AmbientBackground';
-import resumePDF from '../assets/Ketan Pillai.pdf';
 
 const phrases = [
   'scalable full-stack applications',
@@ -119,7 +118,7 @@ export default function Hero() {
             <span>View Projects</span>
             <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
           </a>
-          <a href={resumePDF} target="_blank" rel="noopener noreferrer" className="group flex items-center justify-center space-x-2 bg-white/5 text-white border border-white/10 px-8 py-3.5 rounded-lg font-medium hover:bg-white/10 transition-colors w-full sm:w-auto backdrop-blur-sm">
+          <a href="/Ketan_Pillai_Resume.pdf" target="_blank" rel="noopener noreferrer" className="group flex items-center justify-center space-x-2 bg-white/5 text-white border border-white/10 px-8 py-3.5 rounded-lg font-medium hover:bg-white/10 transition-colors w-full sm:w-auto backdrop-blur-sm">
             <span>Download Resume</span>
           </a>
           <a href="#contact" className="group flex items-center justify-center space-x-2 bg-transparent text-gray-400 px-6 py-3.5 hover:text-white transition-colors w-full sm:w-auto">
