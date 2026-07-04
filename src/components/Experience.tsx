@@ -103,21 +103,12 @@ export default function Experience() {
           </p>
         </motion.div>
 
-        <div ref={containerRef} className="relative pl-8 ml-4 md:ml-0 md:pl-0 border-l border-white/10 md:border-none">
+        <div ref={containerRef} className="relative pl-6 md:pl-8 border-l border-white/10 max-w-3xl mx-auto">
           
-          {/* Animated Mobile Line */}
+          {/* Animated Scroll-Linked Line */}
           <motion.div 
             style={{ scaleY: scrollYProgress }}
-            className="md:hidden absolute left-[-1px] top-0 bottom-0 w-[2px] origin-top bg-gradient-to-b from-blue-500 via-purple-500 to-transparent"
-          ></motion.div>
-
-          {/* Static Desktop Line */}
-          <div className="hidden md:block absolute left-[50%] top-0 bottom-0 w-px bg-white/10 -translate-x-[0.5px]"></div>
-          
-          {/* Animated Desktop Line */}
-          <motion.div 
-            style={{ scaleY: scrollYProgress }}
-            className="hidden md:block absolute left-[50%] top-0 bottom-0 w-[2px] origin-top bg-gradient-to-b from-blue-500 via-purple-500 to-transparent -translate-x-[1px]"
+            className="absolute left-[-1px] top-0 bottom-0 w-[2px] origin-top bg-gradient-to-b from-blue-500 via-purple-500 to-transparent"
           ></motion.div>
           
           {timeline.map((item, idx) => (
@@ -127,29 +118,33 @@ export default function Experience() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6, delay: idx * 0.1 }}
-              className={`mb-12 relative md:flex md:items-center w-full ${idx % 2 === 0 ? 'md:flex-row-reverse' : ''}`}
+              className="relative pb-12 last:pb-0"
             >
-              <div className="absolute -left-10 md:left-1/2 w-8 h-8 rounded-full md:-translate-x-1/2 mt-0 md:mt-0 shadow-[0_0_15px_rgba(59,130,246,0.3)] bg-black border-2 border-blue-500 flex items-center justify-center z-10">
+              {/* Timeline dot icon - centered mathematically on the left line */}
+              <div className="absolute left-[-17px] top-1.5 w-8 h-8 rounded-full shadow-[0_0_15px_rgba(59,130,246,0.3)] bg-black border-2 border-blue-500 flex items-center justify-center z-10">
                 {item.type === 'work' ? <Building2 size={14} className="text-blue-400" /> : <GraduationCap size={14} className="text-purple-400" />}
               </div>
 
-              <div className={`md:w-[45%] md:px-8 mb-4 md:mb-0 ${idx % 2 === 0 ? 'md:text-left' : 'md:text-right'}`}>
-                <h3 className="text-xl font-bold text-white mb-1">{item.title}</h3>
-                <div className={`flex items-center text-blue-400 font-medium mb-2 ${idx % 2 === 0 ? 'md:justify-start' : 'md:justify-end'}`}>
-                  {item.organization}
+              {/* Card Container holding all info together */}
+              <div className="bg-white/5 border border-white/10 rounded-2xl p-6 md:p-8 hover:bg-white/10 transition-all duration-300 shadow-xl backdrop-blur-sm hover:border-blue-500/30">
+                {/* Header Information (Title, Company, Date) */}
+                <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-6 gap-3">
+                  <div>
+                    <h3 className="text-xl md:text-2xl font-bold text-white mb-1">{item.title}</h3>
+                    <div className="text-blue-400 font-semibold text-sm md:text-base">{item.organization}</div>
+                  </div>
+                  <div className="flex items-center text-xs md:text-sm text-gray-400 md:self-start bg-white/5 px-3 py-1.5 rounded-lg border border-white/5 w-fit">
+                    <Calendar size={14} className="mr-2 text-blue-400" />
+                    <span>{item.date}</span>
+                  </div>
                 </div>
-                <div className={`flex items-center text-sm text-gray-500 ${idx % 2 === 0 ? 'md:justify-start' : 'md:justify-end'}`}>
-                  <Calendar size={14} className="mr-2" />
-                  {item.date}
-                </div>
-              </div>
 
-              <div className={`bg-white/5 border border-white/10 rounded-2xl p-6 md:w-[45%] hover:bg-white/10 transition-colors shadow-xl backdrop-blur-sm ${idx % 2 === 0 ? 'md:mr-auto' : 'md:ml-auto'}`}>
-                <ul className="space-y-3">
+                {/* Details Bullet List */}
+                <ul className="space-y-4">
                   {item.details.map((detail, dIdx) => (
                     <li key={dIdx} className="flex items-start text-gray-300">
-                      <ChevronRight size={16} className="text-blue-400 mr-2 mt-0.5 shrink-0" />
-                      <span className="text-sm leading-relaxed">{detail}</span>
+                      <ChevronRight size={16} className="text-blue-400 mr-2 mt-1 shrink-0" />
+                      <span className="text-sm md:text-base leading-relaxed w-full">{detail}</span>
                     </li>
                   ))}
                 </ul>
