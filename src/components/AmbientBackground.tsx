@@ -95,7 +95,26 @@ export default function AmbientBackground() {
     };
   }, [isMobile]);
 
-  if (isMobile) return null;
+  if (isMobile) {
+    return (
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none rounded-b-3xl">
+        {/* Soft, beautiful radial glowing gradients (aurora effect) */}
+        <div className="absolute top-[-10%] left-[-20%] w-[80%] h-[60%] rounded-full bg-blue-500/10 blur-[100px]"></div>
+        <div className="absolute bottom-[10%] right-[-20%] w-[80%] h-[60%] rounded-full bg-purple-500/10 blur-[100px]"></div>
+        
+        {/* CSS Dot Grid Background with vignette mask */}
+        <div 
+          className="absolute inset-0 opacity-[0.25]"
+          style={{
+            backgroundImage: 'radial-gradient(rgba(255, 255, 255, 0.15) 1px, transparent 1px)',
+            backgroundSize: '24px 24px',
+            maskImage: 'radial-gradient(circle at center, black 30%, transparent 80%)',
+            WebkitMaskImage: 'radial-gradient(circle at center, black 30%, transparent 80%)',
+          }}
+        ></div>
+      </div>
+    );
+  }
 
   return (
     <div ref={containerRef} className="absolute inset-0 z-0 pointer-events-none overflow-hidden rounded-b-3xl">

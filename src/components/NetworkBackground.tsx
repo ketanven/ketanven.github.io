@@ -148,7 +148,15 @@ export default function NetworkBackground() {
     };
   }, [isMobile]);
 
-  if (isMobile) return null;
+  if (isMobile) {
+    return (
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+        {/* Soft, deep violet-tinted glow behind projects */}
+        <div className="absolute top-[20%] right-[-10%] w-[70%] h-[50%] rounded-full bg-purple-500/5 blur-[100px]"></div>
+        <div className="absolute bottom-[20%] left-[-10%] w-[70%] h-[50%] rounded-full bg-blue-500/5 blur-[100px]"></div>
+      </div>
+    );
+  }
 
   return (
     <div ref={containerRef} className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
